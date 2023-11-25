@@ -1,30 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/electron-vite.animate.svg";
 import "./App.css";
 import Nav from "./components/nav";
+// import Card from "./components/game-card";
+console.log("this loads (app.tsx)");
 
 function App() {
   return (
     <>
-      <Nav />
       <div>
-        <a href="https://electron-vite.github.io" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Nav />
+        {/* <Card modPath="C:\\Users\\Mikkel Rask\\.local\\lib\\mods\\Doom Dissension 1.3 Remaster + Project Brutality 3.0 + Voxel + Visor" /> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }

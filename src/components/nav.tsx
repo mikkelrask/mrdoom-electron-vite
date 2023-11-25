@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "../App.css";
+console.log("this loads (nav.tsx)");
 
 function Nav() {
   return (
