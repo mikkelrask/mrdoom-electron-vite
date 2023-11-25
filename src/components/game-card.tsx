@@ -1,12 +1,28 @@
-// this component should show the game card, that has the game title, description a launch button and a settings button
-// title and description, as well as the .cardGame should have the picture from the game folder as its background
+import fs from "fs";
+import path from "path";
 
-function Card() {
+interface CardProps {
+  modPath: string;
+}
+
+function Card({ modPath }: CardProps) {
+  const gameTitle = path.basename(modPath);
+  const files = fs.readdirSync(modPath);
+  const wadFiles = files.filter((file) => file.endsWith(".wad"));
+  const pk3Files = files.filter((file) => file.endsWith(".pk3"));
+  const modImg = files.filter(
+    (file) =>
+      file.endsWith(".png") ||
+      file.endsWith(".jpg") ||
+      file.endsWith(".jpeg") ||
+      file.endsWith(".webp")
+  );
+  console.log(wadFiles, pk3Files, modImg);
   return (
     <>
-      <div className="gameCard">
+      <div className="gameCard" style={{ backgroundImage: `url(${modImg})` }}>
         <div className="gameCardTitle">
-          <h1>Game Title</h1>
+          <h1>{gameTitle}</h1>
         </div>
         <div className="gameCardDescription">
           <p>Game Description</p>
@@ -20,12 +36,4 @@ function Card() {
   );
 }
 
-function Logo() {
-  return (
-    <>
-      <div className="gameCard"></div>
-    </>
-  );
-}
-
-export default Logo;
+export default Card;
